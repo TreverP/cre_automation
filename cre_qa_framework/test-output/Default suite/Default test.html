@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jul 26 08:30:46 MDT 2013</td>
+<td>Started on:</td><td>Fri Jul 26 13:57:14 MDT 2013</td>
 </tr>
-<tr><td>Total time:</td><td>17 seconds (17552 ms)</td>
+<tr><td>Total time:</td><td>24 seconds (24423 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,133 +67,23 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.crengland.qa.selenium.tests.SomeTest.testCanLogin()'><b>testCanLogin</b><br>Test class: com.crengland.qa.selenium.tests.SomeTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;positionTitle&quot;}
-Command duration or timeout: 34 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.33.0&apos;, revision: &apos;4e90c97&apos;, time: &apos;2013-05-22 15:33:32&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.4&apos;, java.version: &apos;1.6.0_51&apos;
-Session ID: 4866fdb5-798d-614e-a106-cf9c0a2bf59c
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, browserName=firefox, rotatable=false, locationContextEnabled=true, version=19.0, cssSelectorsEnabled=true, databaseEnabled=true, handlesAlerts=true, browserConnectionEnabled=true, nativeEvents=false, webStorageEnabled=true, applicationCacheEnabled=true, takesScreenshot=true}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:191)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:307)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:348)
-	at org.openqa.selenium.By$ById.findElement(By.java:216)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:299)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:34)
-	at com.sun.proxy.$Proxy8.sendKeys(Unknown Source)
-	at com.crengland.qa.selenium.pageobjects.careertrak.AvailableTeamPositionsPage.postNewPosition(AvailableTeamPositionsPage.java:66)
-	at com.crengland.qa.selenium.tests.SomeTest.testCanLogin(SomeTest.java:34)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;positionTitle&quot;}
-Build info: version: &apos;2.33.0&apos;, revision: &apos;4e90c97&apos;, time: &apos;2013-05-22 15:33:32&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.4&apos;, java.version: &apos;1.6.0_51&apos;
-Driver info: driver.version: unknown
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8444)
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8453)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10456)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10461)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10401)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1145105632", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1145105632'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;positionTitle&quot;}
-Command duration or timeout: 34 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.33.0&apos;, revision: &apos;4e90c97&apos;, time: &apos;2013-05-22 15:33:32&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.4&apos;, java.version: &apos;1.6.0_51&apos;
-Session ID: 4866fdb5-798d-614e-a106-cf9c0a2bf59c
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, browserName=firefox, rotatable=false, locationContextEnabled=true, version=19.0, cssSelectorsEnabled=true, databaseEnabled=true, handlesAlerts=true, browserConnectionEnabled=true, nativeEvents=false, webStorageEnabled=true, applicationCacheEnabled=true, takesScreenshot=true}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:191)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:307)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:348)
-	at org.openqa.selenium.By$ById.findElement(By.java:216)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:299)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:34)
-	at com.sun.proxy.$Proxy8.sendKeys(Unknown Source)
-	at com.crengland.qa.selenium.pageobjects.careertrak.AvailableTeamPositionsPage.postNewPosition(AvailableTeamPositionsPage.java:66)
-	at com.crengland.qa.selenium.tests.SomeTest.testCanLogin(SomeTest.java:34)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;positionTitle&quot;}
-Build info: version: &apos;2.33.0&apos;, revision: &apos;4e90c97&apos;, time: &apos;2013-05-22 15:33:32&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.4&apos;, java.version: &apos;1.6.0_51&apos;
-Driver info: driver.version: unknown
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8444)
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8453)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10456)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10461)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/jk/0qdk3rh90nn8ht5_nffxln0h0000gn/T/anonymous8663060498144002254webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10401)
-</pre></div></td>
+<td title='com.crengland.qa.selenium.tests.SomeTest.testDidPositionGetCreated()'><b>testDidPositionGetCreated</b><br>Test class: com.crengland.qa.selenium.tests.SomeTest</td>
+<td></td>
+<td>6</td>
+<td>com.crengland.qa.selenium.tests.SomeTest@10ad8659</td></tr>
+<tr>
+<td title='com.crengland.qa.selenium.tests.SomeTest.testDoesPositionExsists()'><b>testDoesPositionExsists</b><br>Test class: com.crengland.qa.selenium.tests.SomeTest</td>
+<td></td>
 <td>0</td>
-<td>com.crengland.qa.selenium.tests.SomeTest@64633e5e</td></tr>
+<td>com.crengland.qa.selenium.tests.SomeTest@10ad8659</td></tr>
 </table><p>
 </body>
 </html>

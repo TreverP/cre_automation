@@ -7,30 +7,38 @@ import org.openqa.selenium.WebDriver;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.crengland.qa.selenium.tests.Mymain;
+import com.crengland.qa.helper.*;
+//import com.crengland.qa.selenium.tests.Mymain;
 
 
 
 public class AvailableTeamPositionsPage {
 	static Properties UI;
 	private final WebDriver driver;
+	private Helper helper;
+	private WebDriverWait wait;
+	final String positionTitle = "Selenium Test Position";
+	
 	@FindBy(id = "managepositions") private WebElement availblePositions;
 	@FindBy(id = "newPosition") private WebElement addPosition;
 	@FindBy(id = "openPositionsPagedTable") private WebElement positionTable;
 	@FindBy(id = "statusSelector") private WebElement statusSelector;
     //Post New Position Modal
-	@FindBy(id = "editJobPositionDialog") private WebElement modal;
+	@FindBy(id = "mappingUtil") private WebElement postPositionBtn;
+    @FindBy(id = "closeeditPosition") private WebElement modalCancelBtn;
+    //Modal Top Data
     @FindBy(id = "positionTitle") private WebElement title;
     @FindBy(id = "divisionAbbr") private WebElement division;
     @FindBy(id = "acctMan") private WebElement managerName;
     @FindBy(id = "acctPhone") private WebElement phoneNumber;
     @FindBy(id = "acctEmail") private WebElement email;
-    @FindBy(id = "closeeditPosition") private WebElement cancelModal;
+    //Modal Position Details
     @FindBy(id = "numOpenings") private WebElement openings;
     @FindBy(id = "numPositions") private WebElement totalPositions;
     @FindBy(id = "numPosMonth") private WebElement positionsMonth;
@@ -40,32 +48,31 @@ public class AvailableTeamPositionsPage {
     @FindBy(id = "expectedMiles") private WebElement milage;
     @FindBy(id = "expectedComp") private WebElement compensation;
     @FindBy(id = "expectedAnnInc") private WebElement income;
-    // Minimum Requirements
+    //Modal Minimum Requirements
     @FindBy(id = "totalExp") private WebElement experience;
     @FindBy(id = "creExp") private WebElement creExperience;
     @FindBy(id = "reqService") private WebElement servicePercent;
     @FindBy(id = "accident") private WebElement accident;
     @FindBy(id = "logLevel") private WebElement logLevel;
     @FindBy(linkText = "Minimum Requirements") private WebElement minReqAccordion;
-    @FindBy(id = "mappingUtil") private WebElement postPositionBtn;
-    @FindBy(xpath = "//table[@id='openPositionsPagedTable']/tr") private WebElement table;
+    
 
 	
 	public AvailableTeamPositionsPage(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
 	    	UI = new Properties();
-	    	UI.load(new FileInputStream("/Users/Trever/Documents/workspace/cre_qa_framework/testdata/UI.properties"));
+	    	UI.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/UI.properties"));
 	    	driver = myBrowser;
 	}
 	
 	public void postNewPosition(WebDriver myBrowser) {
 		
-		WebDriverWait wait = new WebDriverWait(myBrowser, 10);
+		 wait = new WebDriverWait(myBrowser, 10);
 		
 		//top portion
 		openNewPositionModal(); 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("positionTitle")));
 		driver.switchTo().activeElement();
-		title.sendKeys("Selenium Test Position");
+		title.sendKeys(positionTitle);
 		division.sendKeys("c");
 		managerName.sendKeys("Test Test");
 		phoneNumber.click();
@@ -98,15 +105,23 @@ public class AvailableTeamPositionsPage {
 
 	public int numberOfOpenPositions() {
 		
-		System.out.print(table.getSize());
-		
-		
-		return 0;
+		helper = new Helper();
+//		System.out.print(ele.size());
+		return helper.numberOfRowsInTable(driver, "openPositionsPagedTable");
 	}
+	
+	public List<WebElement> getOpenPositionTitles() {
+		
+		List<WebElement> ele = driver.findElements(By.xpath("//table[@id='openPositionsPagedTable']/tbody/tr/td[1]"));
+		return ele;
+	}
+	
 	public void openNewPositionModal() {
 		addPosition.click();
 	}
 
-
+	public void cancelNewPositionModal() {
+		
+	}
 
 }

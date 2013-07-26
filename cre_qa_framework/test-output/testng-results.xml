@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="22067" started-at="2013-07-26T14:56:35Z" finished-at="2013-07-26T14:56:57Z">
+  <suite name="Default suite" duration-ms="24423" started-at="2013-07-26T19:57:14Z" finished-at="2013-07-26T19:57:38Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="22067" started-at="2013-07-26T14:56:35Z" finished-at="2013-07-26T14:56:57Z">
+    <test name="Default test" duration-ms="24423" started-at="2013-07-26T19:57:14Z" finished-at="2013-07-26T19:57:38Z">
       <class name="com.crengland.qa.selenium.tests.SomeTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@2d342ba4]" name="setup" is-config="true" duration-ms="16949" started-at="2013-07-26T08:56:35Z" finished-at="2013-07-26T08:56:52Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@10ad8659]" name="setup" is-config="true" duration-ms="17392" started-at="2013-07-26T13:57:14Z" finished-at="2013-07-26T13:57:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testCanLogin()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@2d342ba4]" name="testCanLogin" duration-ms="5101" started-at="2013-07-26T08:56:52Z" finished-at="2013-07-26T08:56:57Z">
+        <test-method status="PASS" signature="testDidPositionGetCreated()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@10ad8659]" name="testDidPositionGetCreated" duration-ms="6859" started-at="2013-07-26T13:57:31Z" finished-at="2013-07-26T13:57:38Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCanLogin -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@2d342ba4]" name="tearDown" is-config="true" duration-ms="1" started-at="2013-07-26T08:56:57Z" finished-at="2013-07-26T08:56:57Z">
+        </test-method> <!-- testDidPositionGetCreated -->
+        <test-method status="PASS" signature="testDoesPositionExsists()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@10ad8659]" name="testDoesPositionExsists" duration-ms="145" started-at="2013-07-26T13:57:38Z" finished-at="2013-07-26T13:57:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDoesPositionExsists -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@10ad8659]" name="tearDown" is-config="true" duration-ms="1" started-at="2013-07-26T13:57:38Z" finished-at="2013-07-26T13:57:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.crengland.qa.selenium.tests.SomeTest -->
-    </test> <!-- Command line test -->
-  </suite> <!-- Command line suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

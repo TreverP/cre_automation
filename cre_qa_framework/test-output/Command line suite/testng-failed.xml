@@ -5,7 +5,6 @@
     <classes>
       <class name="com.crengland.qa.selenium.tests.SomeTest">
         <methods>
-          <include name="tearDown"/>
           <include name="testCanLogin"/>
           <include name="setup"/>
         </methods>

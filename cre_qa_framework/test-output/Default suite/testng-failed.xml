@@ -6,7 +6,7 @@
       <class name="com.crengland.qa.selenium.tests.SomeTest">
         <methods>
           <include name="tearDown"/>
-          <include name="testCanLogin"/>
+          <include name="testDidPositionGetCreated"/>
           <include name="setup"/>
         </methods>
       </class> <!-- com.crengland.qa.selenium.tests.SomeTest -->

@@ -22,7 +22,7 @@ public class LoginPage {
     public LoginPage(WebDriver myBrowser) throws FileNotFoundException, IOException{
     	
     	UI = new Properties();
-    	UI.load(new FileInputStream("/Users/Trever/Documents/workspace/cre_qa_framework/testdata/UI.properties"));
+    	UI.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/UI.properties"));
 //    	myBrowser.get(UI.getProperty("TEST_SERVER"));
     	myBrowser.navigate().to(UI.getProperty("TEST_SERVER") + "/cre_webapp_etools/rest/career/admin/managepositions");
     }
@@ -42,7 +42,7 @@ public class LoginPage {
     }
     
     // passing parameters
-    public void LogMeIn(String xusername, String xpassword) throws InterruptedException{
+    public void LogMeIn(String xusername, String xpassword){
 //    	wait(15000);
     	username.sendKeys(xusername);
     	password.sendKeys(xpassword);
