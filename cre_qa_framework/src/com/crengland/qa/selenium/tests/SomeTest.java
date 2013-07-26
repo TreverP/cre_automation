@@ -1,27 +1,27 @@
 package com.crengland.qa.selenium.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit.*;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.*;
-//import org.openqa.selenium.example.GoogleSearchPage;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-//import org.testng.Assert;
-//import org.testng.Assert;
-import org.testng.annotations.*;
-//import com.crengland.qa.selenium.helper.LoginLogout;
 import com.crengland.qa.selenium.pageobjects.LoginPage;
 import com.crengland.qa.selenium.pageobjects.careertrak.*;
-//import org.openqa.selenium.support.PageFactory;
 
 public class SomeTest {
 	
 		private WebDriver myBrowser;
 		LoginPage page; 
 		AvailableTeamPositionsPage atp;
+		PositionDetailsPage pdp;
 		
         @BeforeTest
 		public void setup() {
@@ -31,12 +31,16 @@ public class SomeTest {
 	        page = PageFactory.initElements(myBrowser, LoginPage.class);
 	        page.LogMeIn("trevorpehr", "charie9");
 	        atp = PageFactory.initElements(myBrowser, AvailableTeamPositionsPage.class);
+	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
         }
 
+        @Test
+		public void testTest() throws FileNotFoundException, IOException {
+        	pdp.editPosition("Test");
+        }
 		@Test
 		//Test if a specific position exists 
 		public void testDoesPositionExists() {
-			
 			
 			List <WebElement> pos = atp.getOpenPositionTitles();
 			
@@ -51,11 +55,13 @@ public class SomeTest {
 				}
 			}
 			
-			Assert.assertEquals(found, true);
+			Assert.assertTrue(found);
+			
 			
 		}
 
-        @AfterTest
+        @AfterMethod
+		@AfterTest
         public void tearDown() throws Exception {
 //        	page.logout();
 //        	myBrowser.quit();

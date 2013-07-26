@@ -55,7 +55,6 @@ public class AvailableTeamPositionsPage {
     @FindBy(id = "accident") private WebElement accident;
     @FindBy(id = "logLevel") private WebElement logLevel;
     @FindBy(linkText = "Minimum Requirements") private WebElement minReqAccordion;
-    
 
 	
 	public AvailableTeamPositionsPage(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
@@ -121,7 +120,20 @@ public class AvailableTeamPositionsPage {
 	}
 
 	public void cancelNewPositionModal() {
-		
+		modalCancelBtn.click();
 	}
 
+	public PositionDetailsPage selectPosition(String position) throws FileNotFoundException, IOException {
+		
+		List <WebElement> positions = getOpenPositionTitles();
+		
+		for (WebElement item : positions) {
+			if (item.getText().equals(position)) {
+				item.click();
+				
+			} 
+		}
+		return new PositionDetailsPage(driver);
+	}
+	
 }
