@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 
 public class Helper {
 	
-	public int numberOfRowsInTable (WebDriver driver, String id){
+	public int numberOfRowsInTable (WebDriver driver, String tableId){
 		
-		List<WebElement> ele = driver.findElements(By.xpath("//table[@id='"+id+"']/tbody/tr"));
+		List<WebElement> ele = driver.findElements(By.xpath("//table[@id='"+tableId+"']/tbody/tr"));
 		return ele.size();
 	}
 

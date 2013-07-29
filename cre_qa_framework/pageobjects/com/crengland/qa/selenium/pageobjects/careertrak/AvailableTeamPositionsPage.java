@@ -29,7 +29,7 @@ public class AvailableTeamPositionsPage {
 	@FindBy(id = "newPosition") private WebElement addPosition;
 	@FindBy(id = "openPositionsPagedTable") private WebElement positionTable;
 	@FindBy(id = "statusSelector") private WebElement statusSelector;
-    //Post New Position Modal
+    //Modal Buttons
 	@FindBy(id = "mappingUtil") private WebElement postPositionBtn;
     @FindBy(id = "closeeditPosition") private WebElement modalCancelBtn;
     //Modal Top Data
@@ -105,14 +105,15 @@ public class AvailableTeamPositionsPage {
 	public int numberOfOpenPositions() {
 		
 		helper = new Helper();
-//		System.out.print(ele.size());
 		return helper.numberOfRowsInTable(driver, "openPositionsPagedTable");
 	}
 	
-	public List<WebElement> getOpenPositionTitles() {
+	public List<WebElement> getOpenPositionTitles(WebDriver myBrowser) {
 		
-		List<WebElement> ele = driver.findElements(By.xpath("//table[@id='openPositionsPagedTable']/tbody/tr/td[1]"));
-		return ele;
+		wait = new WebDriverWait(myBrowser, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("openPositionsPagedTable")));
+		List<WebElement> list = driver.findElements(By.xpath("//table[@id='openPositionsPagedTable']/tbody/tr/td[1]"));
+		return list;
 	}
 	
 	public void openNewPositionModal() {
@@ -123,11 +124,15 @@ public class AvailableTeamPositionsPage {
 		modalCancelBtn.click();
 	}
 
-	public PositionDetailsPage selectPosition(String position) throws FileNotFoundException, IOException {
+	public PositionDetailsPage selectPosition(WebDriver myBrowser, String position) throws FileNotFoundException, IOException {
 		
-		List <WebElement> positions = getOpenPositionTitles();
+		wait = new WebDriverWait(myBrowser, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("openPositionsContent")));
+		
+		List <WebElement> positions = getOpenPositionTitles(myBrowser);
 		
 		for (WebElement item : positions) {
+//			System.out.printf("%s", positions);
 			if (item.getText().equals(position)) {
 				item.click();
 				

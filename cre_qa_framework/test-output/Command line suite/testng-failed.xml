@@ -5,8 +5,10 @@
     <classes>
       <class name="com.crengland.qa.selenium.tests.SomeTest">
         <methods>
-          <include name="testCanLogin"/>
+          <include name="tearDown"/>
+          <include name="testDoesPositionExists"/>
           <include name="setup"/>
+          <include name="testTest"/>
         </methods>
       </class> <!-- com.crengland.qa.selenium.tests.SomeTest -->
     </classes>

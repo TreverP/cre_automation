@@ -31,18 +31,18 @@ public class SomeTest {
 	        page = PageFactory.initElements(myBrowser, LoginPage.class);
 	        page.LogMeIn("trevorpehr", "charie9");
 	        atp = PageFactory.initElements(myBrowser, AvailableTeamPositionsPage.class);
-	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
+//	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
         }
 
-        @Test
-		public void testTest() throws FileNotFoundException, IOException {
-        	pdp.editPosition("Test");
-        }
+        
 		@Test
 		//Test if a specific position exists 
 		public void testDoesPositionExists() {
 			
-			List <WebElement> pos = atp.getOpenPositionTitles();
+//			atp.postNewPosition(myBrowser);
+			
+			
+			List <WebElement> pos = atp.getOpenPositionTitles(myBrowser);
 			
 			String position = "Selenium Test Position";
 			boolean found = false;
