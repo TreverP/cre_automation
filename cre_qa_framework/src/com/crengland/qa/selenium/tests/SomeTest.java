@@ -1,10 +1,9 @@
 package com.crengland.qa.selenium.tests;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit.*;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.*;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -34,14 +33,16 @@ public class SomeTest {
 //	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
         }
 
+        @Test
+        public void testTester() throws FileNotFoundException, IOException {
+        	atp.selectPosition(myBrowser, "Test");
+        }
         
 		@Test
 		//Test if a specific position exists 
 		public void testDoesPositionExists() {
 			
-//			atp.postNewPosition(myBrowser);
-			
-			
+			atp.postNewPosition(myBrowser);
 			List <WebElement> pos = atp.getOpenPositionTitles(myBrowser);
 			
 			String position = "Selenium Test Position";
@@ -56,11 +57,11 @@ public class SomeTest {
 			}
 			
 			Assert.assertTrue(found);
-			
-			
+
 		}
 
-        @AfterMethod
+        
+		
 		@AfterTest
         public void tearDown() throws Exception {
 //        	page.logout();

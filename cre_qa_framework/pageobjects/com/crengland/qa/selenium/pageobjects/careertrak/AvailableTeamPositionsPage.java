@@ -14,6 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.crengland.qa.helper.*;
+
 //import com.crengland.qa.selenium.tests.Mymain;
 
 
@@ -63,45 +64,6 @@ public class AvailableTeamPositionsPage {
 	    	driver = myBrowser;
 	}
 	
-	public void postNewPosition(WebDriver myBrowser) {
-		
-		 wait = new WebDriverWait(myBrowser, 10);
-		
-		//top portion
-		openNewPositionModal(); 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("positionTitle")));
-		driver.switchTo().activeElement();
-		title.sendKeys(positionTitle);
-		division.sendKeys("c");
-		managerName.sendKeys("Test Test");
-		phoneNumber.click();
-		phoneNumber.sendKeys("8019996464");
-		email.sendKeys("test@test.com");
-		// Position Details
-		openings.sendKeys("10");
-		totalPositions.sendKeys("15");
-		positionsMonth.sendKeys("20");
-		cDispatch.click();
-		cDispatch.sendKeys("salt lake city");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ui-autocomplete")));
-		cDispatch.sendKeys(Keys.ARROW_DOWN);
-		cDispatch.sendKeys(Keys.TAB);
-		daysRoad.sendKeys("20");
-		daysHome.sendKeys("10");
-		milage.sendKeys("4000");
-		compensation.sendKeys(".32");
-		//Minimum Req.
-		minReqAccordion.click();
-		experience.sendKeys("12");
-		creExperience.sendKeys("12");
-		accident.sendKeys("6");
-		logLevel.sendKeys("3");
-		
-		postPositionBtn.click();
-		
-		
-	}
-
 	public int numberOfOpenPositions() {
 		
 		helper = new Helper();
@@ -116,8 +78,9 @@ public class AvailableTeamPositionsPage {
 		return list;
 	}
 	
-	public void openNewPositionModal() {
+	public PositionModal openNewPositionModal() throws FileNotFoundException, IOException {
 		addPosition.click();
+		return new PositionModal(driver);
 	}
 
 	public void cancelNewPositionModal() {
@@ -130,12 +93,12 @@ public class AvailableTeamPositionsPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("openPositionsContent")));
 		
 		List <WebElement> positions = getOpenPositionTitles(myBrowser);
-		
+		outerloop:
 		for (WebElement item : positions) {
 //			System.out.printf("%s", positions);
 			if (item.getText().equals(position)) {
 				item.click();
-				
+				break outerloop;
 			} 
 		}
 		return new PositionDetailsPage(driver);
