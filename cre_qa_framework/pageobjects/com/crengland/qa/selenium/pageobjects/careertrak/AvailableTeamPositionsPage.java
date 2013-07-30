@@ -1,7 +1,6 @@
 package com.crengland.qa.selenium.pageobjects.careertrak;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.By;
 import java.io.FileInputStream;
@@ -15,9 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.crengland.qa.helper.*;
 
-//import com.crengland.qa.selenium.tests.Mymain;
-
-
 
 public class AvailableTeamPositionsPage {
 	static Properties UI;
@@ -30,32 +26,7 @@ public class AvailableTeamPositionsPage {
 	@FindBy(id = "newPosition") private WebElement addPosition;
 	@FindBy(id = "openPositionsPagedTable") private WebElement positionTable;
 	@FindBy(id = "statusSelector") private WebElement statusSelector;
-    //Modal Buttons
-	@FindBy(id = "mappingUtil") private WebElement postPositionBtn;
-    @FindBy(id = "closeeditPosition") private WebElement modalCancelBtn;
-    //Modal Top Data
-    @FindBy(id = "positionTitle") private WebElement title;
-    @FindBy(id = "divisionAbbr") private WebElement division;
-    @FindBy(id = "acctMan") private WebElement managerName;
-    @FindBy(id = "acctPhone") private WebElement phoneNumber;
-    @FindBy(id = "acctEmail") private WebElement email;
-    //Modal Position Details
-    @FindBy(id = "numOpenings") private WebElement openings;
-    @FindBy(id = "numPositions") private WebElement totalPositions;
-    @FindBy(id = "numPosMonth") private WebElement positionsMonth;
-    @FindBy(id = "controlDispatchCityState") private WebElement cDispatch;
-    @FindBy(id = "daysRoad") private WebElement daysRoad;
-    @FindBy(id = "daysHome") private WebElement daysHome;
-    @FindBy(id = "expectedMiles") private WebElement milage;
-    @FindBy(id = "expectedComp") private WebElement compensation;
-    @FindBy(id = "expectedAnnInc") private WebElement income;
-    //Modal Minimum Requirements
-    @FindBy(id = "totalExp") private WebElement experience;
-    @FindBy(id = "creExp") private WebElement creExperience;
-    @FindBy(id = "reqService") private WebElement servicePercent;
-    @FindBy(id = "accident") private WebElement accident;
-    @FindBy(id = "logLevel") private WebElement logLevel;
-    @FindBy(linkText = "Minimum Requirements") private WebElement minReqAccordion;
+	@FindBy(linkText = "Edit") private WebElement positionEditBtn;
 
 	
 	public AvailableTeamPositionsPage(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
@@ -83,8 +54,10 @@ public class AvailableTeamPositionsPage {
 		return new PositionModal(driver);
 	}
 
-	public void cancelNewPositionModal() {
-		modalCancelBtn.click();
+	public PositionModal editPosition() throws FileNotFoundException, IOException {
+		
+		positionEditBtn.click();
+		return new PositionModal(driver);
 	}
 
 	public PositionDetailsPage selectPosition(WebDriver myBrowser, String position) throws FileNotFoundException, IOException {

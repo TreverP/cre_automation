@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19039" started-at="2013-07-29T23:07:23Z" finished-at="2013-07-29T23:07:42Z">
+  <suite name="Default suite" duration-ms="27529" started-at="2013-07-30T00:26:53Z" finished-at="2013-07-30T00:27:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19039" started-at="2013-07-29T23:07:23Z" finished-at="2013-07-29T23:07:42Z">
+    <test name="Default test" duration-ms="27529" started-at="2013-07-30T00:26:53Z" finished-at="2013-07-30T00:27:20Z">
       <class name="com.crengland.qa.selenium.tests.SomeTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@671381e7]" name="setup" is-config="true" duration-ms="16334" started-at="2013-07-29T17:07:23Z" finished-at="2013-07-29T17:07:39Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@31b5998f]" name="setup" is-config="true" duration-ms="17220" started-at="2013-07-29T18:26:53Z" finished-at="2013-07-29T18:27:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testTester()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@671381e7]" name="testTester" duration-ms="2684" started-at="2013-07-29T17:07:40Z" finished-at="2013-07-29T17:07:42Z">
+        <test-method status="PASS" signature="testTester()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@31b5998f]" name="testTester" duration-ms="10292" started-at="2013-07-29T18:27:10Z" finished-at="2013-07-29T18:27:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testTester -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@671381e7]" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-29T17:07:42Z" finished-at="2013-07-29T17:07:42Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crengland.qa.selenium.tests.SomeTest@31b5998f]" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-29T18:27:20Z" finished-at="2013-07-29T18:27:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

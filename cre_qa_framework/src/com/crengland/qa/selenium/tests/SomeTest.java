@@ -21,6 +21,7 @@ public class SomeTest {
 		LoginPage page; 
 		AvailableTeamPositionsPage atp;
 		PositionDetailsPage pdp;
+		PositionModal pm;
 		
         @BeforeTest
 		public void setup() {
@@ -30,19 +31,32 @@ public class SomeTest {
 	        page = PageFactory.initElements(myBrowser, LoginPage.class);
 	        page.LogMeIn("trevorpehr", "charie9");
 	        atp = PageFactory.initElements(myBrowser, AvailableTeamPositionsPage.class);
-//	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
+	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
+	        pm = PageFactory.initElements(myBrowser, PositionModal.class);
+	        
         }
 
+        // Would like to change this to add the driver to position and then validate that they dont show in the eligible list
         @Test
-        public void testTester() throws FileNotFoundException, IOException {
+        public void testDriverIsEligibleForPosition() throws FileNotFoundException, IOException {
         	atp.selectPosition(myBrowser, "Test");
+        	List <WebElement> list = pdp.getAllEligibleDrivers(myBrowser);
+        	String driver = "ATHRO";
+        	boolean found = false;
+        	for (WebElement l : list) {
+				if (l.getText().equals(driver)) {
+					found = true;
+					return;
+				} 
+        	}
+        	Assert.assertTrue(found);
         }
         
 		@Test
 		//Test if a specific position exists 
-		public void testDoesPositionExists() {
+		public void testDoesPositionExists() throws FileNotFoundException, IOException {
 			
-			atp.postNewPosition(myBrowser);
+			pm.postNewPosition(myBrowser);
 			List <WebElement> pos = atp.getOpenPositionTitles(myBrowser);
 			
 			String position = "Selenium Test Position";

@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,14 +12,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.crengland.qa.helper.Helper;
 
 public class PositionModal {
 
 	static Properties UI;
 	private final WebDriver driver;
 	private AvailableTeamPositionsPage atp;
-	private Helper helper;
 	private WebDriverWait wait;
 	final String positionTitle = "Selenium Test Position";
 	
@@ -60,7 +57,7 @@ public class PositionModal {
 	public void postNewPosition(WebDriver myBrowser) throws FileNotFoundException, IOException {
 		
 		atp = new AvailableTeamPositionsPage(myBrowser);
-		 wait = new WebDriverWait(myBrowser, 10);
+		wait = new WebDriverWait(myBrowser, 10);
 		
 		//top portion
 		atp.openNewPositionModal(); 
@@ -91,10 +88,13 @@ public class PositionModal {
 		creExperience.sendKeys("12");
 		accident.sendKeys("6");
 		logLevel.sendKeys("3");
-		
 		postPositionBtn.click();
 		
 		
+	}
+	
+	public void cancelNewPositionModal() {
+		modalCancelBtn.click();
 	}
 	
 }
