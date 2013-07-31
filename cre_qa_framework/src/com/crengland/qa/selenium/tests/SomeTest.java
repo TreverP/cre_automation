@@ -22,6 +22,7 @@ public class SomeTest {
 		AvailableTeamPositionsPage atp;
 		PositionDetailsPage pdp;
 		PositionModal pm;
+		AddDriverModal adm;
 		
         @BeforeTest
 		public void setup() {
@@ -33,6 +34,7 @@ public class SomeTest {
 	        atp = PageFactory.initElements(myBrowser, AvailableTeamPositionsPage.class);
 	        pdp = PageFactory.initElements(myBrowser, PositionDetailsPage.class);
 	        pm = PageFactory.initElements(myBrowser, PositionModal.class);
+	        adm = PageFactory.initElements(myBrowser, AddDriverModal.class);
 	        
         }
 
@@ -74,6 +76,13 @@ public class SomeTest {
 
 		}
 
+		@Test
+		public void Test() throws FileNotFoundException, IOException {
+			atp.selectPosition(myBrowser, "Test");
+			pdp.clickAddDriver();
+			PositionDetailsPage p = adm.addCompanyDriverToPosition(myBrowser, "AHM");
+			p.clickAddDriver();
+		}
         
 		
 		@AfterTest

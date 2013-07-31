@@ -62,8 +62,3 @@ public class PositionDetailsPage {
 		eligibleDrivers.click();
 	}
 }
-
-
-//else {
-//	System.out.printf("%S doesn't exists\n", position);
-//}
