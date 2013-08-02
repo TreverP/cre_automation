@@ -80,8 +80,8 @@ public class SomeTest {
 		public void Test() throws FileNotFoundException, IOException {
 			atp.selectPosition(myBrowser, "Test");
 			pdp.clickAddDriver();
-			PositionDetailsPage p = adm.addCompanyDriverToPosition(myBrowser, "AHM");
-			p.clickAddDriver();
+			adm.addCompanyDriverToPosition(myBrowser, "AHM");
+			pdp.clickAddDriver();
 		}
         
 		

@@ -1,10 +1,8 @@
 package com.crengland.qa.selenium.pageobjects.careertrak;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,9 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PositionDetailsPage {
 
-	private AvailableTeamPositionsPage atp;
-	private PositionModal pm;
-	static Properties UI;
 	private final WebDriver driver;
 	private WebDriverWait wait;
 	final String positionTitle = "Western Regional";
@@ -26,33 +21,28 @@ public class PositionDetailsPage {
 	@FindBy(id = "addDriver") private WebElement addDriver;
 	@FindBy(id = "sendPosition") private WebElement sendPositionBtn;
 	
-	public PositionDetailsPage(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
-    	UI = new Properties();
-    	UI.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/UI.properties"));
+	public PositionDetailsPage(WebDriver myBrowser){    	
     	driver = myBrowser;
-}
-	
-	public void editPosition(WebDriver myBrowser, String position) throws FileNotFoundException, IOException{
-		
-		wait = new WebDriverWait(myBrowser, 10);
-		
-		atp = new AvailableTeamPositionsPage(driver);
-		atp.selectPosition(myBrowser, position);
-		editBtn.click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("atp.positionTitle")));
-		pm.cancelNewPositionModal();
+    	wait = new WebDriverWait(myBrowser, 10);
 	}
 
+	// Clicks edit button and returns control for modal
+	public PositionModal clickEditBtn() throws FileNotFoundException, IOException{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("view-position-parent")));
+		editBtn.click();
+		return new PositionModal(driver);
+	}
+
+	// Clicks Add Driver button and returns control for modal
 	public AddDriverModal clickAddDriver() throws FileNotFoundException, IOException{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("currentApps")));
 		addDriver.click();
 		return new AddDriverModal(driver);
 	}
 
 	public List<WebElement> getAllEligibleDrivers(WebDriver browser){
-		
-		wait = new WebDriverWait(browser, 10);
 		this.clickElgibileDriversTab();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendPosition")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("eligibleDrivers")));
 		List<WebElement> list = driver.findElements(By.xpath("//table[@id='eligibleDriversTable']/tbody/tr/td/a[@class='link-action-button']"));
 		return list;
 	}

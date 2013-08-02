@@ -16,8 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PositionModal {
 
 	static Properties UI;
+	static Properties CareerTrak;
 	private final WebDriver driver;
-	private AvailableTeamPositionsPage atp;
 	private WebDriverWait wait;
 	final String positionTitle = "Selenium Test Position";
 	
@@ -40,6 +40,8 @@ public class PositionModal {
 	@FindBy(id = "expectedMiles") private WebElement milage;
 	@FindBy(id = "expectedComp") private WebElement compensation;
 	@FindBy(id = "expectedAnnInc") private WebElement income;
+	@FindBy(id = "salaryInc") private WebElement salaryTextField;
+	@FindBy(id = "compensationDetails") private WebElement detailTextField;
 	//Modal Minimum Requirements
 	@FindBy(id = "totalExp") private WebElement experience;
 	@FindBy(id = "creExp") private WebElement creExperience;
@@ -49,52 +51,73 @@ public class PositionModal {
 	@FindBy(linkText = "Minimum Requirements") private WebElement minReqAccordion;
 	
 	public PositionModal(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
-    	UI = new Properties();
-    	UI.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/UI.properties"));
+    	CareerTrak = new Properties();
+    	CareerTrak.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/CareerTrak.properties"));
     	driver = myBrowser;
+    	wait = new WebDriverWait(myBrowser, 10);
 }
 	
-	public void postNewPosition(WebDriver myBrowser) throws FileNotFoundException, IOException {
-		
-		atp = new AvailableTeamPositionsPage(myBrowser);
-		wait = new WebDriverWait(myBrowser, 10);
-		
-		//top portion
-		atp.openNewPositionModal(); 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("positionTitle")));
-		driver.switchTo().activeElement();
-		title.sendKeys(positionTitle);
-		division.sendKeys("c");
-		managerName.sendKeys("Test Test");
-		phoneNumber.click();
-		phoneNumber.sendKeys("8019996464");
-		email.sendKeys("test@test.com");
-		// Position Details
-		openings.sendKeys("10");
-		totalPositions.sendKeys("15");
-		positionsMonth.sendKeys("20");
-		cDispatch.click();
-		cDispatch.sendKeys("salt lake city");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ui-autocomplete")));
-		cDispatch.sendKeys(Keys.ARROW_DOWN);
-		cDispatch.sendKeys(Keys.TAB);
-		daysRoad.sendKeys("20");
-		daysHome.sendKeys("10");
-		milage.sendKeys("4000");
-		compensation.sendKeys(".32");
-		//Minimum Req.
-		minReqAccordion.click();
-		experience.sendKeys("12");
-		creExperience.sendKeys("12");
-		accident.sendKeys("6");
-		logLevel.sendKeys("3");
+	// Click Post Position button on modal and returns control to position page
+	public AvailableTeamPositionsPage clickPostPositionBtn() throws FileNotFoundException, IOException{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ui-dialog-title-editJobPositionDialog")));
 		postPositionBtn.click();
-		
-		
+		return new AvailableTeamPositionsPage(driver);
 	}
 	
-	public void cancelNewPositionModal() {
+	// Click Cancel button on modal and returns control to position page
+	public AvailableTeamPositionsPage cancelNewPositionModal() throws FileNotFoundException, IOException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ui-dialog-title-editJobPositionDialog")));
 		modalCancelBtn.click();
+		return new AvailableTeamPositionsPage(driver);
 	}
+	
+	// Inputs dummy data for testing; Must pass compensation type (salary, details, or mileage)
+		public void inputPositionDummyDataSalaryDriver(WebDriver myBrowser, String CompensationType) throws FileNotFoundException, IOException {
+		
+			//top portion
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("positionTitle")));
+			driver.switchTo().activeElement();
+			title.sendKeys(CareerTrak.getProperty("POSITION_TITLE"));
+			division.sendKeys(CareerTrak.getProperty("DIVISION"));
+			managerName.sendKeys(CareerTrak.getProperty("MANAGER_NAME"));
+			phoneNumber.click();
+			phoneNumber.sendKeys(CareerTrak.getProperty("PHONE_NUMBER"));
+			email.sendKeys(CareerTrak.getProperty("EMAIL"));
+			// Position Details
+			openings.sendKeys(CareerTrak.getProperty("NUM_OF_OPENINGS"));
+			totalPositions.sendKeys(CareerTrak.getProperty("NUM_TOTAL_POSITIONS"));
+			positionsMonth.sendKeys(CareerTrak.getProperty("NUM_POSITIONS_MONTH"));
+			cDispatch.click();
+			cDispatch.sendKeys(CareerTrak.getProperty("DISPATCH"));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ui-autocomplete")));
+			cDispatch.sendKeys(Keys.ARROW_DOWN);
+			cDispatch.sendKeys(Keys.TAB);
+			daysRoad.sendKeys(CareerTrak.getProperty("DAYS_ON_ROAD"));
+			daysHome.sendKeys(CareerTrak.getProperty("DAYS_AT_HOME"));
+			milage.sendKeys(CareerTrak.getProperty("MILAGE"));
+			compensationType(CompensationType);
+			//Minimum Req.
+			minReqAccordion.click();
+			experience.sendKeys(CareerTrak.getProperty("EXPERIENCE"));
+			creExperience.sendKeys(CareerTrak.getProperty("CRE_EXPERIENCE"));
+			accident.sendKeys(CareerTrak.getProperty("ACCIDENT"));
+			logLevel.sendKeys(CareerTrak.getProperty("LOG_LEVEL"));
+		
+		}
+		
+		private void compensationType(String type){
+		
+			if(type == "salary") {
+				salaryTextField.sendKeys(CareerTrak.getProperty("COMP_SALARY"));
+			} else if (type == "detail") {
+				detailTextField.sendKeys(CareerTrak.getProperty("COMP_DETAILS"));
+			} else if (type == "mileage") {
+				compensation.sendKeys(CareerTrak.getProperty("EXPECTED_COMP"));
+			} else
+				System.out.print("Invalid compensation type");
+			
+		}
+		
+
 	
 }

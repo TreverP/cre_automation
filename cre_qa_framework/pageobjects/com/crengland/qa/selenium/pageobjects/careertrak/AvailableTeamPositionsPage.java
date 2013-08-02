@@ -2,8 +2,6 @@ package com.crengland.qa.selenium.pageobjects.careertrak;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.By;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -30,9 +28,8 @@ public class AvailableTeamPositionsPage {
 
 	
 	public AvailableTeamPositionsPage(WebDriver myBrowser) throws FileNotFoundException, IOException{    	
-	    	UI = new Properties();
-	    	UI.load(new FileInputStream("/Users/Trever/Development/CRE Automation/cre_qa_framework/testdata/UI.properties"));
 	    	driver = myBrowser;
+	    	wait = new WebDriverWait(myBrowser, 10);
 	}
 	
 	public int numberOfOpenPositions() {
@@ -43,19 +40,18 @@ public class AvailableTeamPositionsPage {
 	
 	public List<WebElement> getOpenPositionTitles(WebDriver myBrowser) {
 		
-		wait = new WebDriverWait(myBrowser, 10);
+//		wait = new WebDriverWait(myBrowser, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("openPositionsPagedTable")));
 		List<WebElement> list = driver.findElements(By.xpath("//table[@id='openPositionsPagedTable']/tbody/tr/td[1]"));
 		return list;
 	}
 	
-	public PositionModal openNewPositionModal() throws FileNotFoundException, IOException {
+	public PositionModal clickPostNewPositionBtn() throws FileNotFoundException, IOException {
 		addPosition.click();
 		return new PositionModal(driver);
 	}
 
-	public PositionModal editPosition() throws FileNotFoundException, IOException {
-		
+	public PositionModal clickEditPositionLink() throws FileNotFoundException, IOException {
 		positionEditBtn.click();
 		return new PositionModal(driver);
 	}
