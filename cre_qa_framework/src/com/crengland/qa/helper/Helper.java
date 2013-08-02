@@ -13,4 +13,17 @@ public class Helper {
 		return ele.size();
 	}
 
+	//returns all data in a table for specified column
+	public List <WebElement> getTableData(WebDriver driver, String tableID, int columnNumber){
+		
+		List<WebElement> list = driver.findElements(By.xpath("//table[@id='"+tableID+"']/tbody/tr/td["+columnNumber+"]"));
+		return list;
+	}
+	
+	//returns all data for first column in table
+	public List <WebElement> getTableData(WebDriver driver, String tableID){
+		
+		List<WebElement> list = driver.findElements(By.xpath("//table[@id='"+tableID+"']/tbody/tr/td[1]"));
+		return list;
+	}
 }
