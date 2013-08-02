@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PositionModal {
 
-	static Properties UI;
 	static Properties CareerTrak;
 	private final WebDriver driver;
 	private WebDriverWait wait;

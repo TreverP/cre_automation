@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +13,7 @@ import com.crengland.qa.helper.*;
 
 
 public class AvailableTeamPositionsPage {
-	static Properties UI;
+	
 	private final WebDriver driver;
 	private Helper helper;
 	private WebDriverWait wait;
